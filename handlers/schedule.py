@@ -4,9 +4,9 @@ from utils.scheduler import get_schedule_for_day
 
 async def get_today_schedule(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = get_schedule_for_day()
-    await update.message.reply_text(text)
+    await update.message.reply_text(text, parse_mode="Markdown")
 
 async def get_tomorrow_schedule(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = get_schedule_for_day(is_tomorrow=True)
-    await update.message.reply_text(text)
+    await update.message.reply_text(text, parse_mode="Markdown")
 
