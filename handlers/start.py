@@ -3,7 +3,8 @@ from telegram.ext import ContextTypes
 from utils.config import messages
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
-        [messages.schedule_today, messages.schedule_tommorow],
+        [messages.current_lesson, messages.next_lesson],
+        [messages.schedule_today, messages.schedule_tomorrow],
         [messages.other]
     ]
     

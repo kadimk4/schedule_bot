@@ -8,8 +8,9 @@ class Settings(BaseSettings):
 
 class MessageText(BaseSettings):
     schedule_today: str = "🗓 на сегодня"
-    schedule_tommorow: str = "🗓 на завтра"
-
+    schedule_tomorrow: str = "🗓 на завтра"
+    current_lesson: str = "▶️ Сейчас"
+    next_lesson: str = "⏭ Следующая"
     other: str = "Прочее"
 
 messages = MessageText()
