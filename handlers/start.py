@@ -4,12 +4,11 @@ from telegram.ext import ContextTypes
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         ["📅 Расписание на сегодня", "🗓 На завтра"],
-        ["О нас"]
     ]
     
     reply_markup = ReplyKeyboardMarkup(
         keyboard, 
-        resize_keyboard=True
+        resize_keyboard=True,
         one_time_keyboard=False 
     )
     
