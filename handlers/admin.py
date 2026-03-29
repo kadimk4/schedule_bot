@@ -16,7 +16,8 @@ def get_admin_main_keyboard():
     return InlineKeyboardMarkup([
         [InlineKeyboardButton("👥 Список пользователей", callback_data="adm_users_list")],
         [InlineKeyboardButton("📂 Управление группами", callback_data="adm_groups_list")],
-        [InlineKeyboardButton("➕ Создать группу", callback_data="adm_add_group_prompt")]
+        [InlineKeyboardButton("➕ Создать группу", callback_data="adm_add_group_prompt")],
+        [InlineKeyboardButton("📢 Рассылка новостей", callback_data="adm_post_news")]
     ])
 
 async def admin_panel(update: Update, context: ContextTypes.DEFAULT_TYPE):

@@ -71,6 +71,18 @@ async def update_user_group(tg_id: int, group_id: int):
         await db.execute('UPDATE users SET group_id = ? WHERE tg_id = ?', (group_id, tg_id))
         await db.commit()
 
+async def get_all_user_ids() -> list:
+    async with aiosqlite.connect(settings.database_file) as db:
+        async with db.execute('SELECT tg_id FROM users') as cursor:
+            rows = await cursor.fetchall()
+            return [r[0] for r in rows]
+
+async def get_group_user_ids(group_id: int) -> list:
+    async with aiosqlite.connect(settings.database_file) as db:
+        async with db.execute('SELECT tg_id FROM users WHERE group_id = ?', (group_id,)) as cursor:
+            rows = await cursor.fetchall()
+            return [r[0] for r in rows]
+
 async def get_all_users_detailed() -> list:
     """Возвращает список пользователей с именами их групп."""
     async with aiosqlite.connect(settings.database_file) as db:

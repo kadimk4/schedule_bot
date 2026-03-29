@@ -29,10 +29,14 @@ async def post_init(application):
 
 from handlers.admin import set_starosta, add_group_handler, admin_panel, admin_callback_handler, set_group_handler
 from handlers.starosta import starosta_panel, starosta_callback_handler
+from handlers.news import news_handler
 
 if __name__ == '__main__':
     logger.info("Запуск бота...")
     application = ApplicationBuilder().token(settings.bot_token).post_init(post_init).build()
+    
+    # Регистрация диалога новостей должна быть ПЕРЕД обычными callback-хендлерами
+    application.add_handler(news_handler)
     
     application.add_handler(CommandHandler('start', start))
     application.add_handler(CommandHandler('set_starosta', set_starosta))

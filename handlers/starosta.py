@@ -6,7 +6,8 @@ from utils.config import settings
 def get_starosta_main_keyboard(group_id: int):
     keyboard = [
         [InlineKeyboardButton("🔗 Ссылка для вступления", callback_data=f"st_invite_{group_id}")],
-        [InlineKeyboardButton("👥 Список группы", callback_data=f"st_members_{group_id}")]
+        [InlineKeyboardButton("👥 Список группы", callback_data=f"st_members_{group_id}")],
+        [InlineKeyboardButton("📣 Рассылка в группу", callback_data="st_post_news")]
     ]
     return InlineKeyboardMarkup(keyboard)
 
