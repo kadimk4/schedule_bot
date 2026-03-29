@@ -1,9 +1,10 @@
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import ContextTypes
-
+from utils.config import messages
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
-        ["📅 Расписание на сегодня", "🗓 На завтра"],
+        [messages.schedule_today, messages.schedule_tommorow],
+        [messages.other]
     ]
     
     reply_markup = ReplyKeyboardMarkup(

@@ -1,6 +1,6 @@
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
 from handlers.about import get_about
-from utils.config import settings
+from utils.config import settings, messages
 from handlers.start import start
 from handlers.schedule import get_today_schedule, get_tomorrow_schedule
 
@@ -10,14 +10,14 @@ if __name__ == '__main__':
     application.add_handler(CommandHandler('start', start))
     
     application.add_handler(MessageHandler(
-        filters.Text("📅 Расписание на сегодня"), get_today_schedule
+        filters.Text(messages.schedule_today), get_today_schedule
     ))
     application.add_handler(MessageHandler(
-        filters.Text("🗓 На завтра"), get_tomorrow_schedule
+        filters.Text(messages.schedule_tommorow), get_tomorrow_schedule
     ))
 
     application.add_handler(MessageHandler(
-        filters.Text("О нас"), get_about
+        filters.Text(messages.other), get_about
     ))
     
     print("schedule bot started")
