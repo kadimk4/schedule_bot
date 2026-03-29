@@ -1,0 +1,13 @@
+services:
+  bot:
+    build: .
+    container_name: schedule_bot
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - ./data:/app/data
+    environment:
+      - SCHEDULE_FILE=/app/data/schedule.json
+      - DATABASE_FILE=/app/data/database.db
